@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>SimpleMall friendsCircle</title>
+    <link type="text/css" rel="stylesheet" href="css/base.css" />
+    <link type="text/css" rel="stylesheet" href="css/destine.css" />
+    <link type="text/css" rel="stylesheet" href="css/alicdn.css" />
+    <script src="js/vue.min.js" type="text/javascript"></script>
+    <script src="js/vue-resource.min.js" type="text/javascript"></script>
+    <script src="js/api.js" type="text/javascript"></script>
+    <script src="js/jquery-3.2.1.min.js" type="text/javascript"></script>
+    <script type="text/javascript" charset="utf-8" src="//g.alicdn.com/sd/nch5/index.js?t=2015052012"></script>
+</head>
+<body>
+<div id="app">
+    <header>
+        <div class="head-menu">
+            <h2>动态</h2>
+        </div>
+    </header>
+    <div class="main-box">
+        <ul class="friends-list">
+            <li class="line mb07" v-for="item in friendsData" :key="item.id">
+                <div class="friends-head flex">
+                    <img class="friends-pho" :src="item.message.avatar"/>
+                    <div class="friends-text flex-div">
+                        <h3>{{item.message.nick}}</h3>
+                        <p class="user-sup"><label>{{item.message.address}}</label> | <label>{{item.message.age | ageFilter}}岁</label> | <label>{{item.message.education}}</label></p>
+                    </div>
+                </div>
+                <div class="friends-content">
+                    <p class="text">{{item.content}}</p>
+                    <p class="friends-imgs">
+                        <span><img src="imgs/user1.jpg" /></span><span><img src="imgs/user1.jpg" /></span><span><img src="imgs/user1.jpg" /></span>
+                    </p>
+                    <p class="friends-date ptse1">
+                        <time class="fs26">{{item.updateDate | updateDates}}</time>
+
+                    </p>
+                </div>
+                <div class="circle-con">
+                  <h3 class="title fs30 fd-thick" @click="discuss(item)">评论</h3>
+                  <div class="circle-pl-list">
+                      <div class="friends-pl fs26" v-if="item.commentList.length">
+                          <p v-for="subItem in item.commentList">
+                              <span v-if="subItem.replyUserId"><label>{{subItem.userNick}}</label>回复<label>{{subItem.replyUserNick}}：</label>{{subItem.content}}</span>
+                              <span v-else><label>{{subItem.userNick}}：</label>{{subItem.content}}</span>
+                          </p>
+                  </div>
+                </div>
+           </div>
+            </li>
+        </ul>
+        <div class="discuss-box" v-if="hides">
+            <div class="discuss-shadow" @click="shadow()"></div>
+            <div class="discuss-main">
+                <input type="text" v-model="discussInp" ref="discussInp" class="discuss-inp" placeholder="请输入内容" maxlength="100" />
+                <a class="discuss-btn" @click="review()" :class="{actived: discussInp.length>0}">评论</a>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="foot-menu">
+            <ul class="nav-list fs24 flex">
+                <li><a class="a-nav" href="index.html">首页</a></li>
+                <li><a class="b-nav" href="im.html">消息</a></li>
+                <li><a class="c-nav actived" href="friendsCircle.html">朋友圈</a></li>
+                <li><a class="d-nav" href="my.html">我的</a></li>
+            </ul>
+        </div>
+    </footer>
+</div>
+
+<script type="text/javascript">
+    var app = new Vue({
+        el: '#app',
+        data:{
+            friendsData:[],
+            hides: false,
+            discussInp: '',
+            dzblone: false,
+            item:'',
+            nick:getUrlParam('nick'),
+            tid:getUrlParam('tid')
+        },
+        created:function () {
+            this.fetach()
+        },
+        methods:{
+            hersLinks:function (value) {
+                console.log(value);
+                location.href = 'hersCircle.html?tid=' + value.message.userId
+            },
+            fetach:function () {
+                this.$http.post(api.ip + '/tbFriendsCircle/queryFindPage?friendUserId='+this.tid,{
+                    pageNo: 1,
+                    pageSize: 10,
+                    accessToken: localStorage.getItem('token'),
+                    userId: localStorage.getItem('userId')
+                },{
+                    emulateJSON : true
+                }).then(function (value) {
+                    if(value != undefined){
+                        console.log(value)
+                        this.friendsData = value.body.list
+                    }else {
+                        return false;
+                    }
+                },function (reason) {
+                    console.log(reason)
+                })
+            },
+            discuss:function (val) {
+                this.hides = true;
+                this.item =val;
+                console.log(this.item);
+            },
+            shadow:function () {
+                this.hides = false;
+            },
+            review:function () {
+                var content = this.$refs.discussInp.value;
+                this.$http.post(api.ip + '/tbFriendsCircle/comment',{
+                    articleId: this.item.id,
+                    reply_user_id: null,
+                    content:content,
+                    type:'0',
+                    accessToken: localStorage.getItem('token'),
+                    userId: localStorage.getItem('userId')
+                },{
+                    emulateJSON : true
+                }).then(function (value) {
+                    if(value != undefined){
+                        //成功之后处理
+                        console.log(value)
+                        location.reload();
+                    }else {
+                        return false;
+                    }
+                },function (reason) {
+                    console.log(reason)
+                })
+            },
+            likenums:function (obj) {
+                var userId = localStorage.getItem('userId');
+                var type = 0;
+                if(!this.dzblone){
+                    this.dzblone = true;
+                    ++obj.likenum;
+                }else{
+                    this.dzblone = false;
+                    --obj.likenum;
+                    type = 1;
+                }
+                this.$http.post(api.ip + '/tbFriendsCircle/dianzan',{
+                    articleId: obj.id,
+                    userId: userId,
+                    type:type
+                },{
+                    emulateJSON : true
+                }).then(function () {
+
+                },function () {
+
+                })
+                console.log(obj)
+            }
+        },
+        filters:{
+            ageFilter:function (e) {
+                if(e == undefined){
+                    return 22;
+                }else{
+                    var dates = new Date();
+                    var years = dates.getFullYear();
+                    var ages = e.split('-')[0];
+                    return (years - ages);
+                }
+            },
+            updateDates:function (e) {
+                var date = new Date(e);
+                var y = date.getFullYear();
+                var m = date.getMonth() + 1;
+                m = m < 10 ? ('0' + m) : m;
+                var d = date.getDate();
+                d = d < 10 ? ('0' + d) : d;
+                var h = date.getHours();
+                h = h < 10 ? ('0' + h) : h;
+                var minute = date.getMinutes();
+                var second = date.getSeconds();
+                minute = minute < 10 ? ('0' + minute) : minute;
+                second = second < 10 ? ('0' + second) : second;
+                return y + '-' + m + '-' + d+' '+h+':'+minute;
+
+            }
+        },
+        watch:{
+            watchNum(e) {
+                return 5
+            }
+        }
+    })
+    function getUrlParam(name)
+    {
+        var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+        var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+        if (r!=null) return unescape(r[2]); return null; //返回参数值
+    }
+</script>
+</body>
+</html>

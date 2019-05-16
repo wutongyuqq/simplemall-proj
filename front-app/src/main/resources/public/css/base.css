@@ -1,0 +1,179 @@
+body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl,dt,dd,ul,ol,li,pre,fieldset,legend,button,input,textarea,form,th,td,figure{margin:0;padding:0}
+
+/* 重置默认字体和大小 */
+body{line-height:1.5}
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}
+em{font-style:normal}
+strong{font-weight:700}
+button,input,select,textarea{font-size:100%}
+input{font-family:\5FAE\8F6F\96C5\9ED1;}
+
+/*重置文本格式*/
+a{text-decoration:none}
+q:before,q:after{content:""}
+/* 重置表格元素 */
+table{border-collapse:collapse;border-spacing:0}
+/* 去除默认边框 */
+fieldset,img{border:none}
+/* 重置列表元素 */
+ul,ol{list-style:none}
+/* 媒体元素 */
+a,img,button,input,textarea{-webkit-tap-highlight-color:rgba(255,255,255,0);}
+time{ white-space:nowrap;}
+audio:not([controls]){display:none;height:0}
+
+/* 禁止长按链接与图片弹出菜单 */
+a,img {-webkit-touch-callout: none; }
+
+/* float */
+.fd-left{float:left}
+.fd-right{float:right}
+.fd-clear{clear:both}
+.fd-clr:after{display:block;clear:both;height:0;content:"\0020"}
+.clear:before,.clearfix:after{content:" ";display:table;}
+.clear:after{clear:both;}
+
+/* display */
+.fd-hide{display:none; opacity:0;}
+.fd-show{display:block; opacity:1;}
+.dib{display: inline-block;}
+.fd-tabe{ display:table; width:100%;}
+a { color: #666; cursor:pointer;}
+
+/* position */
+.fd-ce{ margin-left: auto; margin-right: auto;}
+.fd-re{position:relative;}
+.fd-ab{position:absolute;}
+
+/* text */
+.fd-cny{font-family:Helvetica,Arial,"Microsoft YaHei";}
+.fd-white{color:#FFFFFF;}
+.fd-brilliant{color:#fc0554;}
+.fd-black{color:#333333;}
+.fd-grey{color:#999999;}
+.fd-bright{color:#666666;}
+.fd-red,.color16{color:#ff0000;}
+.fd-tl{ text-align:left;}
+.fd-tc{ text-align:center;}
+.fd-tr{text-align:right;}
+.fd-norm{ font-weight:400;}
+.fd-thick{ font-weight:700;}
+
+/* font size */
+.fs20{ font-size: 0.714rem;}
+.fs22{ font-size: 0.785rem;}
+.fs24{ font-size: 0.86rem;}
+.fs26{ font-size: 0.928rem;}
+.fs28{ font-size: 1rem;}
+.fs30{ font-size: 1.071rem;}
+.fs32{ font-size: 1.143rem;}
+.fs34{ font-size: 1.214rem;}
+.fs36{ font-size: 1.285rem;}
+.fs38{ font-size: 1.357rem;}
+.fs40{ font-size: 1.428rem;}
+.fs42{ font-size: 1.5rem;}
+.fs44{ font-size: 1.571rem;}
+.fs46{ font-size: 1.642rem;}
+.fs48{ font-size: 1.714rem;}
+.fs50{ font-size: 1.785rem;}
+.fs54{ font-size: 1.928rem;}
+
+/* background */
+.bg-white{ background-color: #fff;}
+.bg-green{ background-color: #02c696;}
+
+/* padding */
+.pl1{ padding-left: 1.071rem;}
+.pl04{ padding-left: 0.428rem;}
+.pr1{ padding-right: 1.071rem;}
+.pl2{ padding-left: 2.142rem;}
+.pr04{ padding-right: 0.428rem;}
+.pr2{ padding-right: 2.142rem;}
+.pts1{ padding-top: 1.071rem;}
+.ptse1{ padding-top: 1rem;}
+.pt1{ padding-top: 1.285rem;}
+.pt14{ padding-top: 1.42rem;}
+.pt21{ padding-top: 2.14rem;}
+.pt2{ padding-top: 2.32rem;}
+.pt18{ padding-top: 1.857rem;}
+.pt3{ padding-top: 3.1rem;}
+.pt4{ padding-top: 4.178rem;}
+.pt5{ padding-top: 5.357rem;}
+.pt6{ padding-top: 6.124rem;}
+.pt7{ padding-top: 7.35rem;}
+.pt10{ padding-top: 10.124rem;}
+.pt06{ padding-top: 0.657rem;}
+.pm1{ padding-bottom: 1.5rem;}
+.pms1{ padding-bottom: 1rem;}
+.pm06{ padding-bottom: 0.6rem;}
+.pm04{ padding-bottom: 0.4rem;}
+
+/* margin */
+.mt1{ margin-top: 1.714rem;}
+.mt14{ margin-top: 1.42rem;}
+.mt07{ margin-top: 0.76rem;}
+.mt28{ margin-top: 1rem;}
+.mt28{ margin-top: 1rem;}
+.mt72{ margin-top: 2.5rem;}
+.mb07{ margin-bottom: 0.7rem;}
+.mb14{ margin-bottom: 1.42rem;}
+
+/* input */
+.text-inp{ display: block; padding: .75rem 1.357rem .75rem 4.428rem; height: 2.928rem; width: 100%; font-size: 1.071rem; border: 0.08rem solid #fff; background-color: rgba(255, 255, 255, 0.1); color: #fff; box-sizing: border-box; border-radius: 1.464rem;}
+.seet-inp{ display: block; padding: .75rem 1.357rem .75rem 4rem; height: 2.928rem; width: 100%; font-size: 1.02rem; border: 1px solid #d4d4d4; background-color: #fff; color: #999; box-sizing: border-box;}
+.dent-inp{ display: block; padding: 0.89rem 1.357rem 0.89rem 3.357rem; height: 3.428rem; width: 100%; font-size: 1.02rem; border: none; background-color: #fff; color: #999; box-sizing: border-box;}
+
+/* button */
+.btn{ display: block; padding: .75rem 0 0.75rem; height: 2.929rem; width: 100%; font-size: 1.285rem; font-weight: 500;  color: #fff; box-sizing: border-box; text-align: center;}
+.deep-btn{ background-color: #02c696; border-radius: 1.464rem;}
+.brigt-btn{ background-color: #02c696;}
+.defaut-btn{ background-color: transparent; color: #02c696; border: 1px solid #02c696;}
+.forbid-btn{ pointer-events: none; background-color: #D4D4D4!important; color: #666!important; border:none;}
+
+/* 设置元素的盒模型为border-box */
+*:before,*:after{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;text-size-adjust:100%;-webkit-tap-highlight-color:rgba(0,0,0,0)}
+/* 设置元素的盒模型为flex */
+.flex{ display:-webkit-box;display:-moz-box;display:-webkit-flex; display:-ms-flexbox; display:flex;-webkit-box-pack:justify; -moz-box-pack:justify; -ms-flex-pack:justify;-webkit-box-align:center; -moz-box-align:justify; -ms-flex-align:center; justify-content:space-between;}
+.flex .flex-div{-webkit-box-flex:1;-moz-box-flex:1;-webkit-flex:1; -ms-flex:1; flex:1; }
+.flex .flex-pol{-webkit-box-flex:3;-moz-box-flex:3;-webkit-flex:3;flex:3 3 0; }
+
+/*去除元素周围的虚线*/
+*:focus{outline:none}
+
+html,body{font-family:"Microsoft YaHei",Helvetica,Arial,sans-serif,"liheipro"; background:#f5f5f5; color: #999; width:100%; height: 100%;  font-size:100%; line-height:1.25em;}
+
+
+/*------------------------CSS Media Queries--------------------------------*/
+
+@media screen and (max-width:320px){
+  html{ font-size:12px; }
+}
+@media screen and (min-width: 321px) and (max-width: 379px){
+  html{ font-size:14px; }
+}
+@media screen and (min-width: 380px) and (max-width: 429px){
+  html{ font-size:16px;}
+
+}
+@media screen and (min-width: 430px) and (max-width: 479px){
+  html{ font-size:18px;}
+}
+
+@media screen and (min-width: 480px) and (max-width: 639px){
+  html{ font-size:20px;}
+}
+
+@media screen and (min-width: 640px) and (max-width: 767px){
+  html{ font-size:22px; }
+}
+
+@media screen and (min-width:768px) and (max-width: 979px){
+  html{ font-size:24px;}
+
+}
+@media screen and (min-width: 980px) and (max-width:1199px){
+  html{ font-size:25px;}
+}
+@media screen and (min-width:1200px){
+  html{ font-size:28px;}
+}

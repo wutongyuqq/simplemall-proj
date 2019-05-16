@@ -1,0 +1,145 @@
+@charset "utf-8";
+
+/*-----header------*/
+.head-menu,.login-head{ position: relative; padding: 0 3.3rem; height: 2.8rem; line-height: 2.8rem; text-align: center; }
+.head-menu{ position: fixed; left: 0; right: 0; background-color: #f5336f; box-shadow:0 0.5rem 10px rgba(220, 220, 220, 0.5); color: #fff; z-index: 4;}
+.head-menu i,.login-head i{ display: block; position: absolute; left: 1.07rem; top: 0.5rem; width: 1.8rem; height: 1.8rem; background: url(../imgs/drop01.png) no-repeat; background-size: cover;}
+
+/*-----footer-----*/
+.foot-menu{position: fixed; left: 0; right: 0; bottom: 0; background-color: #fff; box-shadow: 0 -0.026667rem 0.026667rem 0 rgba(0,0,0,.08);}
+.nav-list{ height: 3rem; justify-content: space-around;}
+.nav-list li>a{ display: block; padding-top: 1.8rem; }
+.nav-list li>a.actived{ color: #f5336f;}
+.nav-list li>a.a-nav{ background: url(../imgs/icon08.png) no-repeat center 0.2rem; background-size: 1.6rem;}
+.nav-list li>a.a-nav.actived{ background: url(../imgs/icon08-hover.png) no-repeat center 0.2rem; background-size: 1.6rem;}
+.nav-list li>a.b-nav{ background: url(../imgs/icon11.png) no-repeat center 0.2rem; background-size: 1.6rem;}
+.nav-list li>a.b-nav.actived{ background: url(../imgs/icon11-hover.png) no-repeat center 0.2rem; background-size: 1.6rem;}
+.nav-list li>a.c-nav{ background: url(../imgs/icon12.png) no-repeat center 0.2rem; background-size: 1.6rem;}
+.nav-list li>a.c-nav.actived{ background: url(../imgs/icon12-hover.png) no-repeat center 0.2rem; background-size: 1.6rem;}
+.nav-list li>a.d-nav{ background: url(../imgs/icon10.png) no-repeat center 0.2rem; background-size: 1.6rem;}
+.nav-list li>a.d-nav.actived{ background: url(../imgs/icon10-hover.png) no-repeat center 0.2rem; background-size: 1.6rem;}
+
+/*-----login------*/
+.form-page{padding: 17rem 16% 0; margin-top: 1rem; background: url(../imgs/login-bg.jpg) no-repeat center top; background-size: auto 15rem;}
+.form-list li{ position: relative; padding-bottom: 1rem;}
+.form-list .form-dao{ display: block; position: absolute; right: 0; top: 0; padding: 0 0.8rem; height: 2.6rem; line-height: 2.6rem; font-style: normal; background-color: #f84961; color: #fff; border-radius: 1.3rem;}
+.form-inp{padding: 0 0.9rem; height: 2.6rem; line-height: 2.6rem; width: 100%; box-sizing: border-box; background-color: #fff; border-radius: 1.3rem; border: 1px solid #fff;}
+.form-btn{padding: 0 0.9rem; height: 2.6rem; line-height: 2.6rem; width: 100%; box-sizing: border-box; background: linear-gradient(left,#f5326f 20%,#f84961 50%,#fc684e 70%,#ff7a43 100%);  background: -webkit-linear-gradient(left,#f5326f 20%,#f84961 50%,#fc684e 70%,#ff7a43 100%); border-radius: 1.3rem; border: none; color: #fff;}
+.form-sup a{ color: #fc1562; text-decoration: underline;}
+
+/*-----material------*/
+.sex-box{ padding: 3rem 1.6rem 0;}
+.sex-type .sex-li{ position: relative; width: 50%; text-align: center; line-height: 2.5rem; color: #3E3E3E;}
+.sex-type .sex-li i{ display: block; height: 11rem; border: 4px solid rgba(248, 248, 248, 1); border-radius: 50%;} 
+.sex-type .sex-woman{ left: 2%; z-index: 2;}
+.sex-type .sex-woman i{  background: url(../imgs/woman.png) no-repeat center bottom rgba(213, 213, 213, 0.7); background-size: contain;}
+.sex-type .sex-man{ right: 2%;}
+.sex-type .sex-man i{  background: url(../imgs/man.png) no-repeat center bottom rgba(213, 213, 213, 0.7); background-size: contain;}
+.sex-type .sex-li.active{ color: #fc0554; z-index: 5;}
+.sex-type .sex-li.active i{ border-color: rgba(252, 6, 76, 0.8); background-color: rgba(242, 242, 242, 0.7);}
+
+.formal-box{ padding: 1.2rem;}
+.educate-list li{ margin-top: 0.8rem; height: 2.8rem; line-height: 2.8rem; border: 1px solid #fc0554; background-color: #fff; border-radius: 0.3rem; color: #666;}
+.educate-list li.selected{ color: #fff;  background: linear-gradient(left,#f5326f 20%,#f84961 40%,#fc684e 80%,#ff7a43 100%);  background: -webkit-linear-gradient(left,#f5326f 20%,#f84961 40%,#fc684e 80%,#ff7a43 100%); box-shadow: 0 5px 0.9rem rgba(252, 6, 76, 0.5);}
+
+.reg-page{ padding: 17rem 16% 0; margin-top: 1rem; background: url(../imgs/reg-bg.jpg) no-repeat center top; background-size: auto 15rem;}
+
+/*-----registered-----*/
+.region-box{ padding: 7rem 2rem 0;}
+.region-box .form-list li{ padding-bottom: 2rem;}
+
+/*-----detail-----*/
+.main-box{ padding: 2.8rem 0 3rem;}
+
+/*-----index------*/
+.user-list li{ margin-bottom: 0.6rem; padding: 1.2rem 1.1rem; background-color: #fff;}
+.user-list .user-img{ width: 8rem; height: 8rem; border: 3px solid #f0f0f0; border-radius: 50%; overflow: hidden;}
+.user-list .user-img img{ width: 100%; height: 100%;}
+.user-list .user-info{ padding-left: 1rem;}
+.user-list .nickname{ font-weight: 700; font-size: 1.1rem; color: #42475c;}
+.user-list .user-sup{ padding-top: 0.3rem; line-height: 1.2rem; font-size: 0.9rem; color: #42475c;}
+.user-list .user-mark{ padding-top: 0.5rem;}
+.user-list .user-mark span{ display: inline-block; margin-right: 0.4rem; padding: 0 0.3rem; line-height: 1.4rem; border:1px solid #f5336f; font-size: 0.9rem; color: #f5336f; border-radius: 0.3rem;}
+.user-list .user-mark .orange{ color:#ffc2a6; background-color: rgba(255, 194, 166, 0.2); border-color: #ffc2a6;}
+.user-list .user-mark .purple{ background-color: rgba(240, 0, 58, 0.1);}
+.user-list .user-pto{ padding-top: 0.5rem;}
+.user-list .user-pto img{ width: 3rem; height: 3rem; border-radius: 4px; margin-right: 0.5rem;}
+.user-list .user-signature{ margin-top: 0.8rem; padding-left: 1.8rem; line-height: 1.6rem; background: url(../imgs/icon01.png) no-repeat 0 0.15rem; background-size: 1.3rem 1.3rem; color: #42475c;}
+
+/*-----Age------*/
+.age-tab{ display: flex; background-color: #fff;}
+.age-tab span{ position: relative; padding: 0.7rem 0; flex: 1; font-size: 1.1rem; text-align: center;}
+.age-tab span.actived:after{ position: absolute; left: 50%; bottom: 0; display: block; height: 2px; width: 1.6rem; background-color: #fc0554; transform: translateX(-50%); content: '';}
+.cell-box{ margin-top: 1rem; height: 31.5rem; overflow-y: scroll; background-color: #fff;}
+.year-ul .year-item{ display: flex; border-bottom: 1px solid #ccc;}
+.year-ul .year-name{ width: 4rem; text-align: center; color: #fc0554;}
+.year-ul .year-name h3{ line-height: 2rem; font-size: 1.3rem; }
+.year-ul .year-name span{ display: block; margin: 0 auto; width: 1px; border-left: 1px solid #fc0554; height: 6.8rem;}
+.year-sub{ flex: 1; margin-bottom: -1px;}
+.year-sub>li{ float: left; width: 25%; height: 3.5rem; line-height: 3.5rem; text-align: center; color: #3a3a3a; box-sizing: border-box; border: 1px solid #ccc; border-width: 0 1px 1px 0; cursor: pointer}
+.year-sub>li:nth-child(4n){ border-right: none;}
+.year-sub>li.actived{ background-color: #fc0554; color: #fff; box-shadow: 0 0.2rem 0.2rem rgba(252, 5 ,84, 0.3)}
+
+/*-----swiper------*/
+.swiper-container{ height: 19rem; border-bottom-left-radius: 25%; border-bottom-right-radius: 25%;}
+.swiper-wrapper .swiper-slide img{ width: 100%; height: 100%;}
+
+/*-----detail------*/
+.user-info{ padding: 1rem 1.1rem 0.8rem; color: #42475c;}
+.user-info .user-name{}
+.user-info .user-dialog{ right: 2rem; top: 0.7rem; padding-top: 2.3rem; width: 3rem; height: 1rem; line-height: 1rem; background: url(../imgs/icon14.png) no-repeat center top; background-size: 2.2rem 2.2rem;}
+.user-module{ margin: 1.1rem; padding: 0.8rem; background-color: #fff;}
+.user-module .title{ padding-bottom: 1rem; border-bottom: 1px solid #f9f6f6;}
+.user-module .title h2{ padding-left: 0.6rem; line-height: 1.2rem; border-left: 3px solid #fc0554; color: #42475c;}
+.user-module .user-profile{ padding-top: 1rem; line-height: 1.2rem; color: #666978;}
+.user-module .user-profile span{ display: inline-block; padding: 0 0.5rem; margin: 0.5rem 0.5rem 0 0; line-height: 1.8rem; color: #7b7b7d; background-color: rgba(255, 5, 84, 0.2); border-radius: 0.3rem;}
+.bullet-box{ position: fixed; left: 0; right: 0; top: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.8); background-size: contain; background-position: center; background-repeat: no-repeat; z-index: 12;}
+
+/*-----friends circle------*/
+.friends-list li{ padding: 1.2rem 1.1rem; background-color: #fff;}
+.friends-list li.line{ border-bottom: 1px solid #f1f1f1;}
+.friends-list .friends-pho{ width: 4.2rem; height: 4.2rem; border-radius: 0.4rem;}
+.friends-list .friends-text{ padding-left: 0.8rem;}
+.friends-list .friends-text h3{ padding-top: 0.5rem; font-weight: 700; font-size: 1.1rem; color: #42475c;}
+.friends-list .friends-text .user-sup{ padding-top: 0.8rem; line-height: 1.2rem; font-size: 0.9rem; color: #42475c;}
+.friends-list .friends-content{ padding-top: 0.5rem; line-height: 1.4rem; color: #42475c; overflow: hidden;}
+.friends-list .friends-imgs{ width: calc(100% + 0.5rem); overflow: hidden;}
+.friends-list .friends-imgs span{ float: left; width: 33%; height: 8rem; margin-top: 0.8rem; padding-right: 0.5rem; box-sizing: border-box;}
+.friends-list .friends-imgs img{ width: 100%; height: 100%;}
+.friends-list .friends-date{ padding-top: 1.2rem;}
+.friends-list .discuss{ float: right; margin-top: -0.5rem; margin-right: 1rem; width: 2rem; height: 2rem; background: url(../imgs/icon15.png) no-repeat; background-size: contain;}
+.friends-list .like{ position: relative; float: right; margin-top: -0.5rem; margin-right: 2.4rem; width: 2rem; height: 2rem; background: url(../imgs/icon16.png) no-repeat; background-size: contain;}
+.friends-list .like i{ position: absolute; right: -1.2rem; font-style: normal;}
+.friends-list .like.actived{ color: #fc0554; background: url(../imgs/icon16-hover.png) no-repeat; background-size: contain;}
+.friends-list .friends-pl{ margin-top: 1rem; padding: 0.4rem 0.5rem; line-height: 1.5rem; background-color: #fbc7d8; color: #716c6c;}
+.friends-list .friends-pl label{ font-weight: 600; color: #0f0f0f;}
+
+.discuss-box .discuss-shadow{ position: fixed; bottom: 0; left: 0; right: 0; top: 0; background-color: rgba(255, 255, 255, 0); z-index: 2;}
+.discuss-main{ position: fixed; bottom: 0; left: 0; right: 0; padding: 0.5rem 1.1rem; height: 2rem; background-color: #fff; z-index: 25;}
+.discuss-main .discuss-inp{ height: 2rem; width: 74%; padding: 0 0.3rem; border: 1px solid #ddd; border-radius: 0.2rem;}
+.discuss-main .discuss-btn{float: right; width: 20%; height: 2rem; line-height: 2rem; text-align: center; background-color: #d2cfcf; color: #fff; border-radius: 0.2rem; pointer-events: none;}
+.discuss-main .discuss-btn.actived{ background-color: #fc0554; pointer-events: all;}
+
+.circle-con{ }
+.circle-con .title{ margin: 0.6rem -1.1rem 0; padding: 0 1.1rem; color: #14abbb; line-height: 3.2rem; border-top: 1px solid #eae9e9; border-bottom: 1px solid #e2dfdf;}
+.circle-pl-list .item{ padding: 0.5rem 0; line-height: 1.5rem; border-bottom: 1px dashed #eae9e9; color: #42475c;}
+.circle-pl-list .item label{ font-weight: 600; color: #14abbb;}
+.circle-pl-list .item:last-child{ border-bottom: none;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

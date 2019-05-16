@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>SimpleMall Index</title>
+    <link type="text/css" rel="stylesheet" href="css/base.css" />
+    <link type="text/css" rel="stylesheet" href="css/destine.css" />
+    <link type="text/css" rel="stylesheet" href="css/alicdn.css" />
+    <script src="js/vue.min.js" type="text/javascript"></script>
+    <script src="js/vue-resource.min.js" type="text/javascript"></script>
+    <script src="js/api.js" type="text/javascript"></script>
+    <script src="js/jquery-3.2.1.min.js" type="text/javascript"></script>
+    <script type="text/javascript" charset="utf-8" src="//g.alicdn.com/sd/nch5/index.js?t=2015052012"></script>
+</head>
+
+<body>
+<div id="app">
+    <header>
+        <div class="head-menu">
+            <i></i>
+            <h2>月收入</h2>
+        </div>
+    </header>
+    <div class="formal-box">
+        <ul class="educate-list fs30 fd-tc">
+            <li v-for="(item, index) in income" :class="{selected: index == dindx}" :key="index" @click="incomeSect(index, item)">
+                {{item}}
+            </li>
+        </ul>
+    </div>
+</div>
+<script type="text/javascript">
+    var app = new Vue({
+        el: '#app',
+        data: {
+            income: ['3000以下', '3001-5000元', '5001-8000元', '8001-12000元', '12001-20000元', '20001-50000元', '50000元以上'],
+            dindx: 0
+        },
+        methods:{
+            incomeSect:function (str, txt) {
+                this.dindx = str;
+                localStorage.setItem('income', txt);
+                this.$http.post(api.ip + '/acc/improveMessage',{
+                    address: localStorage.getItem('areas'),
+                    age: localStorage.getItem('years') + '-' + localStorage.getItem('month'),
+                    height: localStorage.getItem('height'),
+                    sex: localStorage.getItem('sex'),
+                    marriage: localStorage.getItem('marriage'),
+                    education: localStorage.getItem('xueli'),
+                    salary: txt,
+                    accessToken: localStorage.getItem('token'),
+                     userId: localStorage.getItem('userId')
+                }, {
+                    emulateJSON : true
+                }).then(function (value) {
+                    if(value.body.respCode == 1){
+                        window.location = 'index.html'
+                    }
+                })
+            }
+        }
+    })
+</script>
+</body>
+
+</html>

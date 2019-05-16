@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.simplemall.micro.serv.friend.mapper.TbCommentMapper">
+
+    <insert id="insert">
+        <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.String">
+            select replace(uuid(),'-','')
+        </selectKey>
+        insert  into
+        tb_comment
+        (
+        id,
+        article_id,
+        user_id,
+        reply_user_id,
+        content,
+        pictures,
+        type,
+        create_date,
+        update_date,
+        remarks
+        )
+        values
+        (
+        #{id},
+        #{articleId},
+        #{userId},
+        #{replyUserId},
+        #{content},
+        #{pictures},
+        #{type},
+        now(),
+        #{updateDate},
+        #{remarks}
+        )
+    </insert>
+
+    <select id="findCommentsByArticleId" resultType="com.simplemall.micro.serv.common.bean.friend.TbComment">
+        SELECT
+        a.id AS "id",
+        a.article_id AS "articleId",
+        a.user_id AS "userId",
+        a.reply_user_id AS "replyUserId",
+        a.content AS "content",
+        a.pictures AS "pictures",
+        a.type AS "type",
+        a.create_date AS "createDate",
+        a.update_date AS "updateDate",
+        b.nick AS "userNick",
+        c.nick AS "replyUserNick"
+        FROM
+        tb_comment a
+        LEFT JOIN tb_acc_message  b  ON b.user_id=a.user_id
+        LEFT JOIN tb_acc_message c  ON c.user_id= a.reply_user_id
+        WHERE a.article_id = #{articleId}
+        order by a.create_date
+    </select>
+
+    <insert id="insertDz">
+        <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.String">
+            select replace(uuid(),'-','')
+        </selectKey>
+     insert  into
+     tb_dz_logs
+     (
+     id,
+     article_id,
+     user_id,
+     create_date
+     )
+     values
+     (
+      #{id},
+      #{articleId},
+      #{userId},
+      now() )
+    </insert>
+
+    <select id="checkIsDz" resultType="java.lang.String">
+      select  id  from  tb_dz_logs
+      where article_id = #{articleId}
+      and  user_id = #{userId}
+    </select>
+
+    <delete id="deleteDz">
+        delete from  tb_dz_logs
+        where article_id = #{articleId}
+        and user_id = #{userId}
+    </delete>
+</mapper>

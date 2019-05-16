@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/account-sevice" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/account-sevice/pom.xml" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/base-serv" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/base-serv/admin-server" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/base-serv/conf-server" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/base-serv/eureka-server" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/base-serv/hystrix-dashboard" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/base-serv/security-server" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/base-serv/sleuth-server" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/base-serv/turbine-server" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/base-serv/zuul-server" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/common-module" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/eureka/pom.xml" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/friend-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/front-app" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/order-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/payment-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/product-service" charset="UTF-8" />
+  </component>
+</project>

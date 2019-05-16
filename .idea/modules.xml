@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/account-sevice/account-sevice.iml" filepath="$PROJECT_DIR$/account-sevice/account-sevice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/base-serv/admin-server/admin-server.iml" filepath="$PROJECT_DIR$/base-serv/admin-server/admin-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/base-serv/base-serv.iml" filepath="$PROJECT_DIR$/base-serv/base-serv.iml" />
+      <module fileurl="file://$PROJECT_DIR$/common-module/common-module.iml" filepath="$PROJECT_DIR$/common-module/common-module.iml" />
+      <module fileurl="file://$PROJECT_DIR$/base-serv/conf-server/conf-server.iml" filepath="$PROJECT_DIR$/base-serv/conf-server/conf-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/base-serv/eureka-server/eureka-server.iml" filepath="$PROJECT_DIR$/base-serv/eureka-server/eureka-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/friend-service/friend-service.iml" filepath="$PROJECT_DIR$/friend-service/friend-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/front-app/front-app.iml" filepath="$PROJECT_DIR$/front-app/front-app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/base-serv/hystrix-dashboard/hystrix-dashboard.iml" filepath="$PROJECT_DIR$/base-serv/hystrix-dashboard/hystrix-dashboard.iml" />
+      <module fileurl="file://$PROJECT_DIR$/order-service/order-service.iml" filepath="$PROJECT_DIR$/order-service/order-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/payment-service/payment-service.iml" filepath="$PROJECT_DIR$/payment-service/payment-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/product-service/product-service.iml" filepath="$PROJECT_DIR$/product-service/product-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/base-serv/security-server/security-server.iml" filepath="$PROJECT_DIR$/base-serv/security-server/security-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/simplemall-proj.iml" filepath="$PROJECT_DIR$/simplemall-proj.iml" />
+      <module fileurl="file://$PROJECT_DIR$/base-serv/sleuth-server/sleuth-server.iml" filepath="$PROJECT_DIR$/base-serv/sleuth-server/sleuth-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/base-serv/turbine-server/turbine-server.iml" filepath="$PROJECT_DIR$/base-serv/turbine-server/turbine-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/base-serv/zuul-server/zuul-server.iml" filepath="$PROJECT_DIR$/base-serv/zuul-server/zuul-server.iml" />
+    </modules>
+  </component>
+</project>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title>SimpleMall Index</title>
+	<link type="text/css" rel="stylesheet" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" href="css/destine.css" />
+	<link type="text/css" rel="stylesheet" href="css/alicdn.css" />
+	<script src="js/vue.min.js" type="text/javascript"></script>
+	<script src="js/vue-resource.min.js" type="text/javascript"></script>
+	<script src="js/api.js" type="text/javascript"></script>
+	<script src="js/jquery-3.2.1.min.js" type="text/javascript"></script>
+	<script type="text/javascript" charset="utf-8" src="//g.alicdn.com/sd/nch5/index.js?t=2015052012"></script>
+</head>
+
+<body>
+<div id="app">
+	<header>
+		<div class="head-menu">
+			<h2>推荐</h2>
+		</div>
+	</header>
+	<div class="main-box">
+		<ul class="user-list">
+			<li v-for="(item, index) in dataList" :key="index">
+			  <a :href="'detail.html?tid='+item.tid">
+				<div class="flex">
+					<p class="user-img">
+						<img :src="item.avatar" />
+					</p>
+					<div class="flex-div">
+						<div class="user-info">
+							<h3 class="nickname">{{item.nick}}</h3>
+							<p class="user-sup"><label>{{item.address  | stateFilter}}</label> | <label>{{item.age | ageFilter}}岁</label> | <label>{{item.education}}</label></p>
+							<p class="user-mark"><span class="purple">{{item.age | natureFilter}}</span><span class="orange">{{item.marriage}}</span><span>{{item.height}}cm</span></p>
+							<p class="user-pto" v-if="item.photo_show" data-img="item.photo_show | selImg">
+
+								<img v-for="imgItem in imgCmputed(item.photo_show)" :src="imgItem" />
+							</p>
+							<p class="user-pto" v-else>
+								<img :src="item.avatar" />
+							</p>
+						</div>
+					</div>
+				</div>
+				<p class="user-signature">{{item.signature}}</p>
+			  </a>
+			</li>
+		</ul>
+	</div>
+	<footer>
+        <div class="foot-menu">
+            <ul class="nav-list fs24 flex">
+                <li><a class="a-nav actived" href="index.html">首页</a></li>
+                <li><a class="b-nav" href="im.html">消息</a></li>
+				<li><a class="c-nav" href="friendsCircle.html">朋友圈</a></li>
+				<li><a class="d-nav" href="my.html">我的</a></li>
+            </ul>
+        </div>
+    </footer>
+</div>
+<script type="text/javascript">
+var app = new Vue({
+   el: '#app',
+	data: {
+   	  dataList: [],
+	  nature:['内敛', '内向', '享受独处', '独立', '家务达人', '享受当下', '活泼', '上进', '活泼', '爱热闹', '知足', '有主见'],
+	  navList:['首页', '内向', '享受独处', '独立', '家务达人', '享受当下', '活泼', '上进', '活泼', '爱热闹', '知足', '有主见']
+	},
+	created: function () {
+   	   this.fetach()
+	},
+	computed:{
+	},
+	methods: {
+   	  fetach:function () {
+   	  	this.$http.post(api.ip + '/acc/list', {
+			currentPage: 1,
+			pageSize: 50,
+			accessToken: localStorage.getItem('token'),
+			userId: localStorage.getItem('userId')
+		},{
+			emulateJSON : true
+		}).then(function (value) {
+			console.log(value)
+			this.dataList = value.body.respData.list
+		},function (reason) {
+   	  		console.log(reason)
+		})
+	  },
+		imgCmputed:function (value) {
+			var imgStr = value.split(',');
+			var imgs = [];
+			if(imgStr.length > 4) {
+				imgs.push(imgStr[1]);
+				imgs.push(imgStr[2]);
+				imgs.push(imgStr[3]);
+				imgs.push(imgStr[4]);
+				return imgs;
+			}else{
+				return imgStr;
+			}
+
+		}
+	},
+	filters:{
+		ageFilter:function (e) {
+		  if(e == undefined){
+			  return 22;
+		  }else{
+			  var dates = new Date();
+			  var years = dates.getFullYear();
+			  var ages = e.split('-')[0];
+			  return (years - ages);
+		  }
+		},
+		stateFilter:function (vale) {
+			var state = vale.split(' ')[0];
+			return state;
+		},
+        natureFilter:function (e) {
+            if(e == undefined){
+                return this.nature[0];
+            }else{
+                var dates = new Date();
+                var years = dates.getFullYear();
+                var ages = e.split('-')[0];
+                var a = (years - ages);
+                var b = a%12;
+                if(b<3)
+                return '有主见';
+                else if(b<6)
+                return '享受独处';
+            	else if(b<9)
+                return '内向';
+            	else
+                    return '活泼';
+            }
+        }
+	}
+})
+</script>
+</body>
+
+</html>

@@ -1,0 +1,9 @@
+@charset "utf-8";
+
+._nc .stage{ padding: 0!important; height: 2.6rem !important;}
+._nc .stage1 .slider{ left: 0 !important; right: 0 !important; height: 2.6rem !important; border-radius: 1.3rem;}
+._nc .stage1 .track div, ._nc .stage1 .label{ height: 2.6rem !important; line-height: 2.6rem !important;}
+._nc .stage1 .button{ height: 2.6rem !important; width: 2.6rem !important; line-height: 2.6rem !important; font-size: 1.642rem!important; border-radius: 1.3rem;}
+._nc .stage1 .icon{ font-size: 1.642rem!important; color: #f84961!important; top: 15px!important;}
+._nc .stage1 .track{ height: 2.6rem !important; border-radius: 1.3rem;}
+._nc .stage1 .bg-green{ background-color: #f84961!important;}

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>SimpleMall Height</title>
+    <link type="text/css" rel="stylesheet" href="css/base.css" />
+    <link type="text/css" rel="stylesheet" href="css/destine.css" />
+    <link type="text/css" rel="stylesheet" href="css/alicdn.css" />
+    <script src="js/vue.min.js" type="text/javascript"></script>
+    <script src="js/vue-resource.min.js" type="text/javascript"></script>
+    <script src="js/jquery-3.2.1.min.js" type="text/javascript"></script>
+
+</head>
+<body>
+<div id="app">
+    <header>
+        <div class="head-menu">
+            <i></i>
+            <h2>出生年月</h2>
+        </div>
+    </header>
+    <section id="heightPage">
+        <div class="age-box">
+            <div class="cell-box">
+                <ul class="year-ul" v-show="0 == dindex">
+                    <li v-for="item in height" :key="item" class="year-item">
+                        <div class="year-name">
+                            <h3>{{item.space}}</h3>
+                            <p>CM</p>
+                            <span></span>
+                        </div>
+                        <ul class="year-sub">
+                            <li v-for="(subItem, index) in item.spaceList">{{subItem}}</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
+</div>
+<script type="text/javascript">
+    var app = new Vue({
+        el: '#app',
+        data: {
+            dindex: 0,
+            dloen: true,
+            height:[
+                {space: '130', spaceList:[130, 131, 132, 133, 134, 135, 136, 137, 138, 139]},
+                {space: '140', spaceList:[140, 141, 142, 143, 144, 145, 146, 147, 148, 149]},
+                {space: '150', spaceList:[150, 151, 152, 153, 154, 155, 156, 157, 158, 159]},
+                {space: '160', spaceList:[160, 161, 162, 163, 164, 165, 166, 167, 168, 169]},
+                {space: '170', spaceList:[170, 171, 172, 173, 174, 175, 176, 177, 178, 179]},
+                {space: '180', spaceList:[180, 181, 182, 183, 184, 185, 186, 187, 188, 189]},
+                {space: '190', spaceList:[190, 191, 192, 193, 194, 195, 196, 197, 198, 199]},
+                {space: '200', spaceList:[200, 201, 202, 203, 204, 205, 206, 207, 208, 209]},
+                {space: '210', spaceList:[210, 211, 212, 213, 214, 245, 246, 247, 248, 249]}
+            ]
+        },
+        methods: {
+            ageTypes:function (str) {
+                this.dindex = str
+            }
+        }
+    })
+
+    $('.year-ul .year-sub').each(function (index, elm) {
+        $(elm).find('li').click(function () {
+            var that = $(this);
+            var height = that.text();
+            that.addClass('actived').siblings().removeAttr('class').parent().parent().siblings().find('li').removeAttr('class');
+            localStorage.setItem('height', height);
+            window.location.href = 'xueli.html';
+        });
+    })
+
+
+
+
+</script>
+</body>
+</html>

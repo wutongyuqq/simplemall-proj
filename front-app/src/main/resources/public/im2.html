@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>Title</title>
+</head>
+<script src="js/jquery-3.2.1.min.js" type="text/javascript"></script>
+<script src="http://app.cloopen.com/im50/ytx-web-im-min-new-5.4.0.js">
+</script>
+<script>
+    $(function () {
+        var appid ='8aaf0708679d082f0167a0f8bb0601e6';
+        var userName ='';
+        var timestamp ='';
+        var apptoken ='';
+        //调用接口获取sig
+        //初始化SDK
+        var resp = RL_YTX.init("8aaf0708679d082f0167a0f8bb0601e6");
+        console.log(resp);
+        if(170002== resp.code){
+//缺少必要参数，详情见msg参数
+//用户逻辑处理
+        }else if(174001 == resp.code) {
+//不支持HTML5，关闭页面//用户逻辑处理}
+        }else if (200 == resp.code) {
+            alert(123);
+        }
+        //初始化成功
+        //用户逻辑处理
+        //判断不支持的功能，屏蔽页面展示
+        var unsupport = resp.unsupport;
+    });
+    $(function () {
+    //账号登录参数设置
+    var loginBuilder = new RL_YTX.LoginBuilder();
+    console.log(loginBuilder);
+    //登录类型 1账号登录，3voip账号密码登录   1c9a119f64fe3783fddc536a6632b0f2
+    loginBuilder.setType(1);
+    //设置用户名
+    loginBuilder.setUserName("fyc4");
+    //type值为1时，密码可以不赋值
+    loginBuilder.setPwd();
+    //设置sig
+    loginBuilder.setSig("347ad2c528739ab2c74dc61969b9bc09");
+    //设置时间戳
+    loginBuilder.setTimestamp("20181213042353");
+    //执行用户登录
+     RL_YTX.login(loginBuilder, function(obj){
+        alert("成功");
+//登录成功回调
+//注册接收消息事件监听
+        RL_YTX.onMsgReceiveListener(function(obj){
+            console.log(obj);
+//收到push消息或者离线消息或判断输入状态//如果obj.msgType==12  判断obj.msgDomainn的值//obj.msgDomain 0 无输入状态  1 正在输入  2 正在录音
+        });
+//注册群组通知事件监听
+        RL_YTX.onNoticeReceiveListener(function(obj) {
+//收到群组通知});
+ });
+     }), function(obj){
+        //登录失败方法回调
+            alert("登录失败");
+    }
+    });
+
+   /* $(function () {
+        //新建消息体对象
+        var obj = new RL_YTX.MsgBuilder();
+//设置自定义消息id
+        obj.setId("777");
+//设置发送的文本内容
+        obj.setText("沙雕");
+//设置发送的消息类型1:文本消息 4:图片消息 6:压缩文件 7:非压缩文件
+//发送非文本消息时，text字段将被忽略，发送文本消息时 file字段将被忽略
+        obj.setType(1);
+//设置接收者
+        obj.setReceiver("fyc3");
+        RL_YTX.sendMsg(obj, function(){
+            console.log(233);
+//发送消息成功
+//处理用户逻辑，通知页面
+        }, function(obj) {//失败
+//发送消息失败
+//处理用户逻辑，通知页面刷新，展现重发按钮
+        });
+    });*/
+</script>
+<body>
+
+</body>
+</html>
